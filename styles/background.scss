@@ -1,0 +1,20 @@
+$base-color: #7662e5;
+
+@keyframes color {
+  @for $i from 0 through 100 {
+    #{1 + "%"} {
+      // background: lighten($base-color, $i * 0.75%);
+      //background-image: radial-gradient(ellipse farthest-corner at 0 $i * 0.75%, transparent 0%, white $i * 0.9%, transparent 70%);
+    }
+  }
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: $base-color; /* Fallback */
+  animation: color 20s infinite linear;
+  //background-image: radial-gradient(ellipse farthest-corner at 0 140%, transparent 0%, white 70%, transparent 70%);
+}

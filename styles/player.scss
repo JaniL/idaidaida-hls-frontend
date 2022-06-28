@@ -1,0 +1,11 @@
+.player {
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  audio {
+    width: 100vw;
+  }
+}
