@@ -8,9 +8,9 @@ import type { HelloData } from "./api/hello";
 const fetcher = (...args: any[]) => fetch(...args).then((res) => res.json());
 
 const Home: NextPage = () => {
-  const { data, error } = useSWR("/api/hello", fetcher);
+  const { data: stationData, error } = useSWR<HelloData>("/api/hello", fetcher);
 
-  if (!data) {
+  if (!stationData) {
     return (
       <div className={styles.container}>
         <div className={styles.main}>
@@ -19,8 +19,6 @@ const Home: NextPage = () => {
       </div>
     );
   }
-
-  const stationData = data as HelloData;
 
   if (stationData.live === null) {
     return <p>offline</p>;
