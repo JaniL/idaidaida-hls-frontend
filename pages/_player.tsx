@@ -47,7 +47,7 @@ function Player({ live }: { live: HelloData["live"] | null }) {
     }
     if (Hls.isSupported()) {
       console.log("hls.js supported, attaching");
-      var hls = new Hls();
+      var hls = new Hls({ liveDurationInfinity: true });
       hls.loadSource(streamURL);
       hls.attachMedia(audioPlayer.current);
     } else if (

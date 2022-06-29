@@ -4,11 +4,12 @@ import Image from "next/image";
 import useSWR from "swr";
 import styles from "../styles/Home.module.css";
 import type { HelloData } from "./api/hello";
+import { useStationDataContext } from "./_stationDataContext";
 
-const fetcher = (...args: any[]) => fetch(...args).then((res) => res.json());
 
 const Home: NextPage = () => {
-  const { data: stationData, error } = useSWR<HelloData>("/api/hello", fetcher);
+
+  const stationData = useStationDataContext()
 
   if (!stationData) {
     return (
