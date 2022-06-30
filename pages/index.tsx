@@ -4,7 +4,7 @@ import Image from "next/image";
 import useSWR from "swr";
 import styles from "../styles/Home.module.css";
 import type { HelloData } from "./api/hello";
-import { useStationDataContext } from "./_stationDataContext";
+import { useStationDataContext } from "../hooks/stationDataContext";
 
 const Home: NextPage = () => {
   const stationData = useStationDataContext();

@@ -6,7 +6,7 @@ import Background from "./_background";
 import Player from "./_player";
 import useSWR from "swr";
 import { HelloData } from "./api/hello";
-import StationDataContext from "./_stationDataContext";
+import StationDataContext from "../hooks/stationDataContext";
 
 const fetcher = (...args: any[]) => fetch(...args).then((res) => res.json());
 
