@@ -30,7 +30,8 @@ function Player({ live }: { live: HelloData["live"] | null }) {
     if ("mediaSession" in navigator && live) {
       navigator.mediaSession.metadata = new MediaMetadata({
         title: live.title,
-        artist: live.show_title,
+        artist: live.artist,
+        album: live.show_title,
         artwork: live.show_image ? convertImagesToArtwork(live) : undefined,
       });
     }
