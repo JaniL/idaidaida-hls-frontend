@@ -6,10 +6,8 @@ import styles from "../styles/Home.module.css";
 import type { HelloData } from "./api/hello";
 import { useStationDataContext } from "./_stationDataContext";
 
-
 const Home: NextPage = () => {
-
-  const stationData = useStationDataContext()
+  const stationData = useStationDataContext();
 
   if (!stationData) {
     return (
@@ -25,14 +23,17 @@ const Home: NextPage = () => {
     return <p>offline</p>;
   }
 
+  const image =
+    stationData.live.episode_image ?? stationData.live.show_image ?? null;
+
   return (
     <div className={styles.container}>
       <div className={styles.main}>
-        {stationData.live.episode_image ? (
+        {image ? (
           <Image
             width={500}
             height={500}
-            src={stationData.live.episode_image.url}
+            src={image.url}
             alt={stationData.live.show_title}
           />
         ) : null}
